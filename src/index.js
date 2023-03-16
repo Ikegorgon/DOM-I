@@ -35,8 +35,40 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
   "images": {
     "logo-img": "http://localhost:9000/img/logo.png",
     "cta-img": "http://localhost:9000/img/cta.png",
-    "accent-img": "http://localhost:9000/img/accent.png",
+    "middle-img": "http://localhost:9000/img/accent.png",
   },
 };
 
 console.log('project wired!')
+// Nav
+let navLinks = document.querySelectorAll("header nav a");
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].textContent = siteContent.nav["nav-item-" + (i + 1)];
+  navLinks[i].classList.add("italic");
+}
+//CTA Content
+document.querySelector("section.cta div.cta-text").children[0].textContent = siteContent.cta["h1"];
+document.querySelector("section.cta div.cta-text").children[1].textContent = siteContent.cta["button"];
+//Main Content
+document.querySelectorAll("div.text-content h4")[0].textContent = siteContent["main-content"]["features-h4"];
+document.querySelectorAll("div.text-content h4")[1].textContent = siteContent["main-content"]["about-h4"];
+document.querySelectorAll("div.text-content h4")[2].textContent = siteContent["main-content"]["services-h4"];
+document.querySelectorAll("div.text-content h4")[3].textContent = siteContent["main-content"]["product-h4"];
+document.querySelectorAll("div.text-content h4")[4].textContent = siteContent["main-content"]["vision-h4"];
+document.querySelectorAll("div.text-content p")[0].textContent = siteContent["main-content"]["features-content"];
+document.querySelectorAll("div.text-content p")[1].textContent = siteContent["main-content"]["about-content"];
+document.querySelectorAll("div.text-content p")[2].textContent = siteContent["main-content"]["services-content"];
+document.querySelectorAll("div.text-content p")[3].textContent = siteContent["main-content"]["product-content"];
+document.querySelectorAll("div.text-content p")[4].textContent = siteContent["main-content"]["vision-content"];
+//Contact
+document.querySelector("section.contact").children[0].textContent = siteContent.contact["contact-h4"];
+document.querySelector("section.contact").children[1].textContent = siteContent.contact["address"];
+document.querySelector("section.contact").children[2].textContent = siteContent.contact["phone"];
+document.querySelector("section.contact").children[3].textContent = siteContent.contact["email"];
+//Footer
+document.querySelector("footer a").textContent = siteContent.footer.copyright;
+document.querySelector("footer a").classList.add("bold");
+// Images
+for (let id in siteContent.images) {
+  document.getElementById(id).setAttribute("src", siteContent.images[id]);
+}
